@@ -15,33 +15,17 @@ text-align: center;
 
 .textarea {
   display: block;
-  // position: relative;
-  // width: 100%;
   width: 700px;
   height: 205px;
   font-size: 20px;
   margin: 10px auto 20px;
   color: #070132;
-  //  padding: 10px;
 }
 
 .keyboard {
-    // position: relative;
-    // // background: #004134;
-    //   background: #98d71b;
-    //  border: 1px solid #004134;
-    // padding: 5px;
-    // border-radius: 4px;
-    // box-shadow: 0 0 50px rgba($color: #000000, $alpha: 0.5);
-    // user-select: none;
-    // cursor: pointer;
-    // transition: bottom 0.4s;
-     // position: absolute;
-    //width: 100%;
     width: 900px;
     margin: 0 auto;
     background: #98d71b;
-    // border: 1px solid #004134;
     padding: 5px;
     border-radius: 4px;
     box-shadow: 0 0 50px rgba($color: #000000, $alpha: 0.5);
@@ -65,8 +49,6 @@ text-align: center;
     border: none;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 0 3px rgba($color: rgb(3 84 57), $alpha: 0.5);
-    // box-shadow: 0 0 10px rgb(3 84 57);
-    // color: rgb(4, 66, 120);
     color: rgb(3, 84, 57);
     font-size: 1.05rem;
     font-weight: 400;
@@ -94,6 +76,5 @@ text-align: center;
   }
 
   .btn-dark {
-    // background-color: #78b402;
     background-color: rgb(89, 189, 43);
   }

@@ -35,7 +35,6 @@ main.append(wrapper);
 const title = document.createElement('h1');
 title.classList.add('title');
 title.textContent = 'RSS Виртуальная клавиатура';
-// document.body.prepend(title);
 main.prepend(title);
 
 const textarea = document.createElement('textarea');
@@ -62,15 +61,13 @@ wrapper.append(switchLanguage);
 
 keyboardButtons.append(this.createButtons());
 
-// this.elements.buttons = this.elements.keyboardButtons.querySelectorAll('.keyboard-button');
+
 
 },
 
 triggerEvent(handlerName) {
-  // console.log('Event:' + handlerName)
+
   this.elements.buttons = this.elements.keyboardButtons.querySelector('.keyboard-button');
-  // console.log('this.elements.keyboardButtons :', this.elements.keyboardButtons);
-  // console.log('this.elements.buttons :', buttons);
 
   if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
@@ -157,7 +154,7 @@ createButtons () {
                   buttonElement.textContent = "Shift";
 
                   buttonElement.addEventListener('click', () => {
-                    // this.properties.value +=  "\n";
+
                     this.triggerEvent ('oninput');
                   });
                   break;
@@ -167,7 +164,7 @@ createButtons () {
                     buttonElement.textContent = "Ctrl";
 
                     buttonElement.addEventListener('click', () => {
-                      // this.properties.value +=  "\n";
+
                       this.triggerEvent ('oninput');
                     });
                     break;
@@ -177,7 +174,7 @@ createButtons () {
                       buttonElement.textContent = "Win";
 
                       buttonElement.addEventListener('click', () => {
-                        // this.properties.value +=  "\n";
+
                         this.triggerEvent ('oninput');
                       });
                       break;
@@ -187,7 +184,7 @@ createButtons () {
                         buttonElement.textContent = "Alt";
 
                         buttonElement.addEventListener('click', () => {
-                          // this.properties.value +=  "\n";
+
                           this.triggerEvent ('oninput');
                         });
                         break;
@@ -206,7 +203,7 @@ createButtons () {
                     buttonElement.textContent = "↑";
 
                     buttonElement.addEventListener('click', () => {
-                      // this.properties.value +=  " ";
+
                       this.triggerEvent ('oninput');
                     });
                     break;
@@ -216,7 +213,7 @@ createButtons () {
                       buttonElement.textContent = "←";
 
                     buttonElement.addEventListener('click', () => {
-                      // this.properties.value +=  " ";
+
                       this.triggerEvent ('oninput');
                     });
                     break;
@@ -226,7 +223,7 @@ createButtons () {
                       buttonElement.textContent = "↓";
 
                     buttonElement.addEventListener('click', () => {
-                      // this.properties.value +=  " ";
+
                       this.triggerEvent ('oninput');
                     });
                     break;
@@ -236,7 +233,7 @@ createButtons () {
                       buttonElement.textContent =  "→";
 
                     buttonElement.addEventListener('click', () => {
-                      // this.properties.value +=  " ";
+
                       this.triggerEvent ('oninput');
                     });
                     break;
