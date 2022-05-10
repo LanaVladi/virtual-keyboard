@@ -48,6 +48,7 @@ wrapper.append(keyboard);
 const keyboardButtons = document.createElement('div');
 keyboardButtons.classList.add('keyboard-buttons');
 keyboard.append(keyboardButtons);
+this.elements.keyboardButtons = keyboardButtons;
 
 const description = document.createElement('p');
 description.classList.add('description');
@@ -68,6 +69,7 @@ keyboardButtons.append(this.createButtons());
 triggerEvent(handlerName) {
 
   this.elements.buttons = this.elements.keyboardButtons.querySelector('.keyboard-button');
+console.log("event:" + handlerName);
 
   if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
@@ -86,7 +88,7 @@ createButtons () {
   ];
 
   buttonsEn.forEach(button => {
-    const buttonElement = document.createElement('keyboard-button');
+    const buttonElement = document.createElement('button');
     const lineBreak = ["Backspace", "Delete", "Enter", "↑"].indexOf(button) !== -1; // переносы
 
               buttonElement.setAttribute('type', 'button');
