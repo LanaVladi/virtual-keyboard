@@ -1,8 +1,5 @@
 import '/src/scss/normalize.css';
 import '/src/scss/style.scss';
-window.addEventListener('DOMContentLoaded', function () {
-  KeyboardContainer.init();
-})
 
 const KeyboardContainer = {
   elements: {
@@ -19,7 +16,8 @@ const KeyboardContainer = {
       value: "",
       capsLock: false,
       shift: false,
-      alt: false
+      alt: false,
+      lang: 'En'
   },
 
 // создаем элементы
@@ -40,6 +38,7 @@ main.prepend(title);
 const textarea = document.createElement('textarea');
 textarea.classList.add('textarea');
 wrapper.append(textarea);
+textarea.focus(); // устанавливает автофокус
 
 const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
@@ -48,7 +47,7 @@ wrapper.append(keyboard);
 const keyboardButtons = document.createElement('div');
 keyboardButtons.classList.add('keyboard-buttons');
 keyboard.append(keyboardButtons);
-this.elements.keyboardButtons = keyboardButtons;
+this.elements.keyboardButtons = keyboardButtons; // изменяю null на массив с созданными кнопками
 
 const description = document.createElement('p');
 description.classList.add('description');
@@ -62,20 +61,34 @@ wrapper.append(switchLanguage);
 
 keyboardButtons.append(this.createButtons());
 
+this.elements.buttons = this.elements.keyboardButtons.querySelectorAll('.keyboard-button');
 
+document.querySelectorAll(".textarea").forEach(elem => {
+  elem.addEventListener("focus", () => {
+      this.open(elem.value, currentValue => {
+          elem.value = currentValue;
+          textarea.focus();
+
+      });
+  });
+});
 
 },
 
 triggerEvent(handlerName) {
 
   this.elements.buttons = this.elements.keyboardButtons.querySelector('.keyboard-button');
-console.log("event:" + handlerName);
+// console.log("event:" + handlerName);
 
   if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
   }
 },
 
+open(initialValue, oninput) {
+this.properties.value = "" || initialValue;
+this.eventHandlers.oninput = oninput;
+},
 
 createButtons () {
   const fragment = document.createDocumentFragment();
@@ -256,4 +269,9 @@ createButtons () {
   });
   return fragment;
   },
+
 };
+
+window.addEventListener('DOMContentLoaded', function () {
+  KeyboardContainer.init();
+})
